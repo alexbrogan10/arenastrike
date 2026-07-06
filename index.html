@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arena Strike — 3D FPS</title>
+  <link rel="stylesheet" href="css/style.css?v=4">
+</head>
+<body>
+  <div id="overlay">
+    <div id="menu" class="panel">
+      <h1>Arena Strike</h1>
+      <p class="tagline">1v1 arena combat — fight the hostile raider</p>
+      <div class="controls">
+        <h2>Controls</h2>
+        <ul>
+          <li><kbd>↑</kbd> Move forward</li>
+          <li><kbd>↓</kbd> Move backward</li>
+          <li><kbd>←</kbd> Turn left</li>
+          <li><kbd>→</kbd> Turn right</li>
+          <li><kbd>Space</kbd> Shoot</li>
+          <li><kbd>R</kbd> Reload</li>
+        </ul>
+      </div>
+      <button id="start-btn">Enter Arena</button>
+    </div>
+
+    <div id="hud" class="hidden">
+      <div id="damage-flash"></div>
+
+      <div class="hud-corner tl"></div>
+      <div class="hud-corner tr"></div>
+      <div class="hud-corner bl"></div>
+      <div class="hud-corner br"></div>
+
+      <div class="hud-top">
+        <div class="hud-panel stat">
+          <div class="panel-header">
+            <span class="label">Operator</span>
+            <span id="player-hp-text" class="hp-value">80</span>
+          </div>
+          <div class="bar-wrap"><div id="player-health" class="bar player"></div></div>
+        </div>
+
+        <div class="hud-panel stat center">
+          <span id="match-timer" class="timer">00:00</span>
+          <span class="label">Elapsed</span>
+          <div class="score-row">
+            <span id="score">0</span>
+            <span class="label">Kills</span>
+          </div>
+        </div>
+
+        <div class="hud-panel stat enemy-panel">
+          <div class="panel-header">
+            <span class="label enemy-name">Hostile Raider</span>
+            <span id="enemy-hp-text" class="hp-value enemy">120</span>
+          </div>
+          <div class="bar-wrap"><div id="enemy-health" class="bar enemy"></div></div>
+          <span id="enemy-distance" class="distance">— m</span>
+        </div>
+      </div>
+
+      <div id="threat-indicator" class="hidden">⚠ ENEMY HAS LINE OF SIGHT</div>
+
+      <div id="compass">
+        <div id="compass-ring"></div>
+        <div id="compass-needle"></div>
+        <span class="compass-n">N</span>
+      </div>
+
+      <div id="crosshair">
+        <span class="ch-line ch-top"></span>
+        <span class="ch-line ch-bottom"></span>
+        <span class="ch-line ch-left"></span>
+        <span class="ch-line ch-right"></span>
+        <span class="ch-dot"></span>
+      </div>
+
+      <div class="hud-bottom">
+        <div class="hud-panel weapon-panel">
+          <span class="label">Pulse Rifle</span>
+          <div class="ammo-row">
+            <span id="ammo-count">12</span>
+            <span class="ammo-sep">/</span>
+            <span class="ammo-max">12</span>
+          </div>
+          <div class="bar-wrap reload-wrap">
+            <div id="reload-bar" class="bar reload"></div>
+          </div>
+          <span id="weapon-status" class="weapon-status">READY</span>
+        </div>
+
+        <div class="hud-panel controls-hint">
+          <span><kbd>↑↓←→</kbd> Move</span>
+          <span><kbd>Space</kbd> Fire</span>
+          <span><kbd>R</kbd> Reload</span>
+        </div>
+      </div>
+
+      <div id="message" class="hidden"></div>
+    </div>
+
+    <div id="game-over" class="panel hidden">
+      <h1 id="result-title">Victory</h1>
+      <p id="result-text"></p>
+      <button id="restart-btn">Play Again</button>
+    </div>
+  </div>
+
+  <canvas id="game-canvas" tabindex="0"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="js/game.js?v=4"></script>
+</body>
+</html>
